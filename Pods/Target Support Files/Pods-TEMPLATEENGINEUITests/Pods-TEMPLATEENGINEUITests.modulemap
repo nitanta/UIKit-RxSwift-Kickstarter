@@ -1,0 +1,6 @@
+framework module Pods_TEMPLATEENGINEUITests {
+  umbrella header "Pods-TEMPLATEENGINEUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

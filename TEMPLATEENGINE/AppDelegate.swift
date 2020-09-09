@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwinjectStoryboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        SwinjectStoryboard.setup()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let firstVC = UIStoryboard().instrancer(storyboard: "Display", controller: "DisplayViewController") as? DisplayViewController
+        let nav = UINavigationController(rootViewController: firstVC!)
+        nav.isNavigationBarHidden = true
+        appDelegate.window?.rootViewController = nav
+        appDelegate.window?.makeKeyAndVisible()
         return true
     }
 
